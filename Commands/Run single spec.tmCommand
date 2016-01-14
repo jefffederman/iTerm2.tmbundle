@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/bin/sh
+#
+osascript &lt;&lt; END
+tell application "iTerm"
+  activate
+  tell current session of current window
+    delay 1
+    write text "cd $TM_PROJECT_DIRECTORY"
+    write text "bundle exec rspec $TM_FILEPATH:$TM_LINE_NUMBER"
+  end tell
+end tell
+END</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@</string>
+	<key>name</key>
+	<string>Run single spec</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>371F006D-B3ED-437F-B26D-7DF07F92C998</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
